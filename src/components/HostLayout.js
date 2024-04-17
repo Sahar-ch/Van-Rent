@@ -1,7 +1,10 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData } from "react-router-dom";
+
+
 
 const HostLayout = () => {
+
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",

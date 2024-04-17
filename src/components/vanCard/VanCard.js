@@ -1,11 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const VanCard = (props) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
   const van = props.van;
   return (
     <div className="van-tile">
-      <Link to={`/vans/${van.id}`}>
+      <Link
+        to={van.id}
+        state={{
+          search: searchParams.toString(),
+          filteredType: props.filteredType,
+        }}
+      >
         <img src={van.imageUrl} />
         <div className="van-info">
           <h3>{van.name}</h3>
